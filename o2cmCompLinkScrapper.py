@@ -1,3 +1,8 @@
+"""
+This program pulls all comps and their associated result url for all years listed
+Only run if updating CompURLS.json. Otherwise can just load from there
+"""
+
 import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
