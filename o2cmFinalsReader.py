@@ -38,7 +38,7 @@ for table in tables:
         table_name = '' #Populated null value if no dance found
 
     if table_name == 'Couples':
-        rows = [tr for tr in tables[6].find_all('tr') if tr.find('td')]
+        rows = [tr for tr in table.find_all('tr') if tr.find('td')]
 
         couples = {}
         judges = {}
@@ -90,3 +90,11 @@ for table in tables:
                         break
                     else:
                         results_dict[table_name][couples[items[0].get_text(strip=True)]][judges[judge_list[j-1]]] = item
+
+response = requests.get('https://results.o2cm.com/event3.asp?event=mit26&bclr=%23FFFFFF&tclr=%23000000', headers=headers, timeout=15)
+response.raise_for_status()
+soup = BeautifulSoup(response.text, "lxml")
+
+rows = soup.find_all(href=True)
+for row in rows:
+    print(row['href'])
