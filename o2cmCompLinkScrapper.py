@@ -4,22 +4,8 @@ Only run if updating CompURLS.json. Otherwise can just load from there
 """
 
 import requests
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 import json
-
-# Selenium code commented out due to lack of need
-"""
-driver = webdriver.Chrome()
-driver.implicitly_wait(10)
-driver.get("https://results.o2cm.com/")
-year_field = driver.find_element(By.ID, "fy")
-year_field.send_keys('2022')
-go_button = driver.find_element(By.CSS_SELECTOR, "#FilterList input[type='submit']")
-go_button.click()
-print(driver.current_url)
-"""
 
 comp_dict = {}
 
